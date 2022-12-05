@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="file://F:/Setups/spring-framework-5.3.23/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://F:/Setups/spring-framework-5.3.23/libs" />
+    </SOURCES>
+    <jarDirectory url="file://F:/Setups/spring-framework-5.3.23/libs" recursive="false" />
+    <jarDirectory url="file://F:/Setups/spring-framework-5.3.23/libs" recursive="false" type="SOURCES" />
+  </library>
+</component>
