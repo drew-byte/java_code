@@ -2,7 +2,6 @@ package MainPackage;
 
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
 
 import FirstStudentPackage.firstStudent;
 import SecondStudentPackage.secondStudent;
