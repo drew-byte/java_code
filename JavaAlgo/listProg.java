@@ -50,36 +50,24 @@ public class listProg {
 
         System.out.print("Do you want to add more participants [ Yes | No ] : ");
         String add = sc.nextLine();
+
         if (add.equalsIgnoreCase("Yes")) {
             form();
         } else {
-            String fs = "               ";
+
             System.out.println("LIST OF STUDENTS PARTICIPANTS");
-            System.out.println("ID NUMBER"+fs+"STUDENT NAME"+fs+"COLLEGE"+fs+"PROGRAM");
+            System.out.println("ID NUMBER           STUDENT NAME        COLLEGE             PROGRAM");
             for (int i = 0; i < studId.size(); i++) {
 
-                int space = 20;
-                String str1 = " ";
-                String str2 = " ";
-                String str3 = " ";
+                String column1Format = "%-20s";
 
-                for (int space1 = studId.size(); space1 < space - 1; space1++) {
+                String formater = column1Format + " " + column1Format + " " + column1Format + " " + column1Format;
 
-                    str1 += " ";
-                    
-                }
-                for (int space2 = studName.size(); space2 < space - 1; space2++) {
+                System.out.format(formater, studId.get(i), studName.get(i), college.get(i), program.get(i));
+                System.out.println();
 
-                    str2 += " ";
-                }
-                for (int space3 = college.size(); space3 < space - 1; space3++) {
-
-                    str3 += " ";
-                }
-
-                System.out.println(
-                        studId.get(i) + str1 + studName.get(i) + str2 + college.get(i) + str3 + program.get(i));
             }
+
         }
 
     }
