@@ -44,4 +44,10 @@ public class Cat implements Pet {
         return "Keeps purring!";
     }
 
+    @Override
+    public String showHate() {
+        // TODO Auto-generated method stub
+        return "Crying!";
+    }
+
 }

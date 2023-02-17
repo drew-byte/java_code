@@ -2,6 +2,7 @@ package factory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class MainProg {
@@ -35,6 +36,8 @@ public class MainProg {
         Cat cat = new Cat();
         Dog dog = new Dog();
         String stats = "";
+        double speedStat;
+        int atkStat, hpStat;
 
         if (typePetStr.equalsIgnoreCase("Cat")) {
             System.out.println(Arrays.toString(catBreed));
@@ -83,8 +86,11 @@ public class MainProg {
                 cat.setLifeCounter(5);
 
             }
-            stats += "Name of pet: "+cat.getPetName() + "   Attack Damage: " + cat.getAttackDamage() + "   HP: " + cat.getLifeCounter() + "   Movement Speed: " + cat.getRunSpeed();
-        
+            stats += "Name of pet: " + cat.getPetName() + "   Attack Damage: " + cat.getAttackDamage() + "   HP: "
+                    + cat.getLifeCounter() + "   Movement Speed: " + cat.getRunSpeed();
+            speedStat = cat.getRunSpeed();
+            hpStat = cat.getLifeCounter();
+            atkStat = cat.getAttackDamage();
 
         } else {
             System.out.println(Arrays.toString(dogBreed));
@@ -130,19 +136,67 @@ public class MainProg {
                 dog.setRunSpeed(9.0);
                 dog.setLifeCounter(8);
             }
-            
-            stats +="Name of pet: "+dog.getPetName() + "   Attack Damage: " + dog.getAttackDamage() + "   HP: " + dog.getLifeCounter() + "   Movement Speed: " + dog.getRunSpeed();
+
+            stats += "Name of pet: " + dog.getPetName() + "   Attack Damage: " + dog.getAttackDamage() + "   HP: "
+                    + dog.getLifeCounter() + "   Movement Speed: " + dog.getRunSpeed();
+            speedStat = dog.getRunSpeed();
+            hpStat = dog.getLifeCounter();
+            atkStat = dog.getAttackDamage();
         }
-       
+
         line();
         System.out.println(stats);
         System.out.println("Game on!");
 
-        // petOwner.setId("123");
-        // petOwner.setId("Juan");
-        // petOwner.setPet("cat");
+        Bot bot = new Bot();
+        double botSpeedStat = bot.getRunSpeed();
+        int botHpStat = bot.getLifeCounter();
+        int botAtkStat = bot.getAttackDamage();
+        String option = "";
+       
 
-        // System.out.println(petOwner.getPet());
+        while (hpStat != 0 || botHpStat != 0) {
+            line();
+            Random rand = new Random();
+            int choiceRand = rand.nextInt(0,100);
+
+            System.out.print("[1.Attack | 2.Defend]: ");
+            option = sc.nextLine();
+            if (option.equalsIgnoreCase("1")) {
+                System.out.println("Damaged!");
+                botHpStat = botHpStat - atkStat;
+                
+
+            } else {
+                System.out.println("Shielded!");
+
+            }
+
+            if (choiceRand%2==1 && option.equalsIgnoreCase("1")) {
+                line();
+                System.out.println("Damaged!");
+                hpStat = hpStat - botAtkStat;
+
+            }
+            System.out.println("Your Hp is " + hpStat);
+            System.out.println("Enemy HP: " + botHpStat);
+
+            if (botHpStat <= 0) {
+                line();
+                System.out.println("Game Over!");
+                System.out.println("You Win!");
+                line();
+                System.out.println(petOwner.getPet().showLove());
+            } else if (hpStat <= 0) {
+                line();
+                System.out.println("Game Over!");
+                System.out.println("You Lose!");
+                line();
+                System.out.println(petOwner.getPet().showHate());
+            }
+
+        }
 
     }
+
 }

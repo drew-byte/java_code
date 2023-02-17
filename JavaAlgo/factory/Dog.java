@@ -44,4 +44,10 @@ public class Dog implements Pet {
         return "Flash puppy eyes!";
     }
 
+    @Override
+    public String showHate() {
+        // TODO Auto-generated method stub
+        return "Barking!";
+    }
+
 }
