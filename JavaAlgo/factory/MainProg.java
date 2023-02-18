@@ -195,6 +195,11 @@ public class MainProg {
                 System.out.println(petOwner.getPet().showHate());
             }
 
+            if(hpStat <= 0 || botHpStat <= 0)
+            {
+                break;
+            }
+
         }
 
     }
