@@ -13,13 +13,7 @@ public class Reservation {
         this.numOfAdults = numOfAdults;
         this.numOfChildren = numOfChildren;
     }
-
-    public void display() {
-        System.out.println("All Reservations");
-        System.out.println();
-        System.out.printf("%-5s %-10s %-7s %-8s%n", "ID", "DATE", "TIME", "NAME", "ADULTS", "CHILDREN");
-
-    }
+    
     public void setName(String name)
     {
         this.name = name;
